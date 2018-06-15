@@ -18,6 +18,7 @@ bool stack_p1<T>::isEmpty() {
     }
 }
 
+// causes segmentation fault if called when stack is empty
 template<typename T>
 T stack_p1<T>::pop() {
     T data = top->data; // stores data of top node so top can be deleted before return statement
@@ -40,7 +41,7 @@ void stack_p1<T>::push(T item) {
     return;
 }
 
-// returns data stored in current top node.
+// returns data stored in current top node, causes segmentation fault if called when stack is empty
 template<typename T>
 T stack_p1<T>::peek() {
     return top->data;
