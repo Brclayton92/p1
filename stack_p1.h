@@ -7,7 +7,6 @@
 
 #ifndef stack_p1_h
 #define stack_p1_h
-#include <list>
 
 struct node {
     char data;

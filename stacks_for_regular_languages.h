@@ -16,4 +16,7 @@ public:
     bool L3(char * inputString);
     bool L4(char * inputString);
 };
+
+
+
 #endif /* stacks_for_regular_languages_h */

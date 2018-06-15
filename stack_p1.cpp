@@ -3,9 +3,11 @@
 //
 
 #include "stack_p1.h"
+#include "stacks_for_regular_languages.h"
 #include <iostream>
 using namespace std;
 
+// returns true if size = 0, false otherwise.
 template<typename T>
 bool stack_p1<T>::isEmpty() {
     if (size == 0){
@@ -18,26 +20,27 @@ bool stack_p1<T>::isEmpty() {
 
 template<typename T>
 T stack_p1<T>::pop() {
-    T data = top->data;
-    node *temp = new node;
-    temp = top;
-    top = top->next;
-    delete temp;
-    size--;
+    T data = top->data; // stores data of top node so top can be deleted before return statement
+    node *temp = new node; // temp node used to store current top
+    temp = top; // sets temp to top
+    top = top->next; // sets variable "top" to new top node
+    delete temp; // deletes old top node
+    size--; // decrements size in accordance with stack losing a node
     return data; // returns contents of top->data after deleting the node
 }
 
 template<typename T>
 void stack_p1<T>::push(T item) {
-    node* newItem = new node;
-    node* temp = top;
-    top = newItem;
-    top->data = item;
-    top->next = temp;
-    size++;
+    node* newItem = new node; // creates a new node to store input data
+    node* temp = top; // creates a temp duplicate of current top
+    top = newItem; // changes top to the newly created node
+    top->data = item; // stores pass in data to new top
+    top->next = temp; // links new top to the other items in the stack
+    size++; //increments size in accordance with new node being added
     return;
 }
 
+// returns data stored in current top node.
 template<typename T>
 T stack_p1<T>::peek() {
     return top->data;

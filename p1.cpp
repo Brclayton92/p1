@@ -1,27 +1,13 @@
 #include <iostream>
-#include "stack_p1.cpp"
+#include "stack_p1.h"
+#include "stacks_for_regular_languages.h"
 using namespace std;
 
 int main() {
-    stack_p1<char> newStack;
-    newStack.push('e');
-    newStack.push('d');
-    newStack.push('c');
-    newStack.push('b');
-    newStack.push('a');
+    string inputString = "AABBBAABBB";
 
-    cout << newStack.isEmpty() << endl;
-    cout << "peeking:" << newStack.peek() << endl;
-
-    while (!newStack.isEmpty()) {
-        cout << newStack.pop();
-    }
-
-
-
-
-    cout << endl;
-    cout << newStack.isEmpty();
-
+    stacks_for_regular_languages sfrl;
+    char* inputCharPtr = &inputString[0];
+    cout << sfrl.L1(inputCharPtr);
     return 0;
 }
