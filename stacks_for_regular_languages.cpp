@@ -49,7 +49,7 @@ bool stacks_for_regular_languages::L1(char *inputString) {
     }
 }
 
-bool stacks_for_regular_languages::L2(char *inputString) { //FIXME: returning false when inputString = "", see if this is correct behavior, if not, add fringe case
+bool stacks_for_regular_languages::L2(char *inputString) {
     stack_p1<char> newStack;
     char first = *inputString;
     bool bEncountered = false;
@@ -107,7 +107,7 @@ bool stacks_for_regular_languages::L2(char *inputString) { //FIXME: returning fa
     }
 }
 
-bool stacks_for_regular_languages::L3(char *inputString) { // FIXME: returning false when inputString = "", see if this is correct behavior, if not, add fringe case
+bool stacks_for_regular_languages::L3(char *inputString) {
     char first = *inputString;
     vector<string> subStrings;
     bool bEncountered = false;
