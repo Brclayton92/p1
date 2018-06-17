@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    string inputString = "AAABBBAAABBBAAABBB";
+    string inputString = "BBAA";
 
     stacks_for_regular_languages sfrl;
     char* inputCharPtr = &inputString[0];
