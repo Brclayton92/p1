@@ -4,6 +4,8 @@
 #include "stacks_for_regular_languages.h"
 #include "stack_p1.h"
 #include "stack_p1.cpp"
+#include <vector>
+#include <string>
 
 bool stacks_for_regular_languages::L1(char *inputString) {
     stack_p1<char> newStack;
@@ -48,11 +50,114 @@ bool stacks_for_regular_languages::L1(char *inputString) {
 }
 
 bool stacks_for_regular_languages::L2(char *inputString) {
-    return false;
+    stack_p1<char> newStack;
+    char first = *inputString;
+    bool bEncountered = false;
+
+    if (first != 'A') {
+        return false;
+    }
+
+    // iterates through string checking for non 'A' and 'B characters and adding the first character of the string to the
+    // stack every time it is encountered.
+    for(char* it = inputString; *it; ++it) {
+        if ((*it != 'A') && (*it != 'B')){
+            return false;
+        }
+
+        if (bEncountered == false) {
+            if (*it == 'A') {
+                newStack.push(*it);
+            }
+
+            else {
+                bEncountered = true;
+            }
+
+            if (bEncountered == true){
+                if (*it == 'A'){
+                    return false;
+                }
+            }
+        }
+    }
+
+    // iterates through the string again, popping off the stack each time a character that is not
+    // the first character of the string is encountered
+    for(char* it = inputString; *it; ++it) {
+        if (*it != first){ // first if statement is entered every time current character is not "first character"
+            if (newStack.isEmpty() != true) { // pops from that for each "non first" character encountered
+                newStack.pop();
+            }
+
+            else { // if a "non first" character is encountered, but stack is already empty, returns false.
+                return false;
+            }
+        }
+    }
+
+    // if first if statement is passed, and stack is empty, string fits the language => return true.
+    // otherwise return false
+    if (newStack.isEmpty() == true){
+        return true;
+    }
+
+    else {
+        return false;
+    }
 }
 
 bool stacks_for_regular_languages::L3(char *inputString) {
-    return false;
+    char first = *inputString;
+    vector<string> subStrings;
+    bool bEncountered = false;
+    int j = 0;
+    std::string substring;
+
+    if (first != 'A') {
+        return false;
+    }
+
+    for(char* it = inputString; *it; ++it) {
+        if ((*it != 'A') && (*it != 'B')){
+            return false;
+        }
+
+        if (bEncountered == false) {
+            if (*it == 'A') {
+                substring = substring + *it;
+            }
+
+            else {
+                bEncountered = true;
+            }
+        }
+
+        if (bEncountered == true){
+            if (*it == 'A'){
+                subStrings.push_back(substring);
+                substring = *it;
+                j++;
+                bEncountered = false;
+            }
+
+            else {
+                substring = substring + *it;
+            }
+        }
+    }
+
+    subStrings.push_back(substring);
+
+    for (int i = 0; i < subStrings.size() - 1; i++){
+        if (subStrings[i] != subStrings[i+1]){
+            return false;
+        }
+    }
+
+    cout << "hello";
+
+    return true;
 }
 
 bool stacks_for_regular_languages::L4(char *inputString) {
