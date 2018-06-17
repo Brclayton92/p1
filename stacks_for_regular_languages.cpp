@@ -113,6 +113,8 @@ bool stacks_for_regular_languages::L3(char *inputString) {
     bool bEncountered = false;
     int j = 0;
     std::string substring;
+    std::string postStackString = "";
+    stack_p1<std::string> stringStack;
 
     if (first != 'A') {
         return false;
@@ -149,10 +151,22 @@ bool stacks_for_regular_languages::L3(char *inputString) {
 
     subStrings.push_back(substring);
 
-    for (int i = 0; i < subStrings.size() - 1; i++){
+    /*for (int i = 0; i < subStrings.size() - 1; i++){
         if (subStrings[i] != subStrings[i+1]){
             return false;
         }
+    }*/
+
+    for (int i = 0; i < subStrings.size(); i++){
+        stringStack.push(subStrings[i]);
+    }
+
+    while (stringStack.isEmpty() != true){
+        postStackString += stringStack.pop();
+    }
+
+    if(inputString != postStackString){
+        return false;
     }
 
     for (int i = 0; i < subStrings.size(); i++){
