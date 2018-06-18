@@ -183,5 +183,70 @@ bool stacks_for_regular_languages::L3(char *inputString) {
 }
 
 bool stacks_for_regular_languages::L4(char *inputString) {
-    return false;
+    char first = *inputString;
+    stack_p1<std::string> subStrings;
+    stack_p1<std::string> subStrings2;
+    bool bEncountered = false;
+    int j = 0;
+    std::string substring;
+    std::string postStackString = "";
+    // stack_p1<std::string> stringStack;
+
+    if (first != 'A') {
+        return false;
+    }
+
+    for(char* it = inputString; *it; ++it) {
+        if ((*it != 'A') && (*it != 'B')){
+            return false;
+        }
+
+        if (bEncountered == false) {
+            if (*it == 'A') {
+                substring = substring + *it;
+            }
+
+            else {
+                bEncountered = true;
+            }
+        }
+
+        if (bEncountered == true){
+            if (*it == 'A'){
+                subStrings.push(substring);
+                subStrings2.push(substring);
+                substring = *it;
+                j++;
+                bEncountered = false;
+            }
+
+            else {
+                substring = substring + *it;
+            }
+        }
+    }
+
+    subStrings.push(substring);
+    subStrings2.push(substring);
+
+
+    /*for (int i = 0; i < subStrings.size() - 1; i++){
+        if (subStrings[i] != subStrings[i+1]){
+            return false;
+        }
+    }*/
+
+    /*for (int i = 0; i < subStrings.size(); i++){
+        stringStack.push(subStrings[i]);
+    }*/
+
+    while (subStrings.isEmpty() != true){
+        postStackString += subStrings.pop();
+    }
+
+    if(inputString != postStackString){
+        return false;
+    }
+
+    return true;
 }

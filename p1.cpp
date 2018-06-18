@@ -4,10 +4,10 @@
 using namespace std;
 
 int main() {
-    string inputString = "";
+    string inputString = "AAABBAAABBB";
 
     stacks_for_regular_languages sfrl;
     char* inputCharPtr = &inputString[0];
-    cout << sfrl.L3(inputCharPtr);
+    cout << sfrl.L4(inputCharPtr);
     return 0;
 }
