@@ -182,7 +182,7 @@ bool stacks_for_regular_languages::L3(char *inputString) {
     return true;
 }
 
-bool stacks_for_regular_languages::L4(char *inputString) { // FIXME: returns true for strings that contrain only A's. Ex: "AA"
+bool stacks_for_regular_languages::L4(char *inputString) {
     char first = *inputString;
     stack_p1<std::string> subStrings;
     stack_p1<std::string> subStrings2;
