@@ -143,6 +143,7 @@ int main() {
     }
 
     if (sfrl.L3(inputCharPtr) == true){
+
         cout << "problem with L3. " << inputString << " returned true, should be false."<< endl << endl;
     }
 
