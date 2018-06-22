@@ -3,7 +3,6 @@
 //
 
 #include "stack_p1.h"
-#include "stacks_for_regular_languages.h"
 #include <iostream>
 using namespace std;
 
@@ -22,7 +21,7 @@ bool stack_p1<T>::isEmpty() {
 template<typename T>
 T stack_p1<T>::pop() {
     T data = top->data; // stores data of top node so top can be deleted before return statement
-    node *temp = new node; // temp node used to store current top
+    node *temp; // temp node used to store current top
     temp = top; // sets temp to top
     top = top->next; // sets variable "top" to new top node
     delete temp; // deletes old top node
@@ -31,7 +30,7 @@ T stack_p1<T>::pop() {
 }
 
 template<typename T>
-void stack_p1<T>::push(T item) {
+void stack_p1<T>::push(T item) { //FIXME: IDE is insisting this method is never used, but it certainly is used.
     node* newItem = new node; // creates a new node to store input data
     node* temp = top; // creates a temp duplicate of current top
     top = newItem; // changes top to the newly created node
@@ -44,6 +43,7 @@ void stack_p1<T>::push(T item) {
 // returns data stored in current top node, causes segmentation fault if called when stack is empty
 template<typename T>
 T stack_p1<T>::peek() {
-    return top->data;
+    T topData = top->data;
+    return topData;
 }
 

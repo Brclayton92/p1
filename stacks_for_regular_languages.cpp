@@ -5,7 +5,6 @@
 #include "stack_p1.h"
 #include "stack_p1.cpp"
 #include <vector>
-#include <string>
 
 bool stacks_for_regular_languages::L1(char *inputString) {
     stack_p1<char> newStack;
@@ -112,10 +111,8 @@ bool stacks_for_regular_languages::L3(char *inputString) {
     stack_p1<std::string> subStrings;
     stack_p1<std::string> subStrings2;
     bool bEncountered = false;
-    int j = 0;
     std::string substring;
     std::string postStackString = "";
-   // stack_p1<std::string> stringStack;
 
     if (first != 'A') {
         return false;
@@ -128,7 +125,7 @@ bool stacks_for_regular_languages::L3(char *inputString) {
 
         if (bEncountered == false) {
             if (*it == 'A') {
-                substring = substring + *it;
+                substring +=  *it;
             }
 
             else {
@@ -141,29 +138,17 @@ bool stacks_for_regular_languages::L3(char *inputString) {
                 subStrings.push(substring);
                 subStrings2.push(substring);
                 substring = *it;
-                j++;
                 bEncountered = false;
             }
 
             else {
-                substring = substring + *it;
+                substring +=  *it;
             }
         }
     }
 
     subStrings.push(substring);
     subStrings2.push(substring);
-
-
-    /*for (int i = 0; i < subStrings.size() - 1; i++){
-        if (subStrings[i] != subStrings[i+1]){
-            return false;
-        }
-    }*/
-
-    /*for (int i = 0; i < subStrings.size(); i++){
-        stringStack.push(subStrings[i]);
-    }*/
 
     while (subStrings.isEmpty() != true){
         postStackString += subStrings.pop();
@@ -187,10 +172,8 @@ bool stacks_for_regular_languages::L4(char *inputString) {
     stack_p1<std::string> subStrings;
     stack_p1<std::string> subStrings2;
     bool bEncountered = false;
-    int j = 0;
     std::string substring;
     std::string postStackString = "";
-    // stack_p1<std::string> stringStack;
 
     if (first != 'A') {
         return false;
@@ -203,7 +186,7 @@ bool stacks_for_regular_languages::L4(char *inputString) {
 
         if (bEncountered == false) {
             if (*it == 'A') {
-                substring = substring + *it;
+                substring += *it;
             }
 
             else {
@@ -216,29 +199,17 @@ bool stacks_for_regular_languages::L4(char *inputString) {
                 subStrings.push(substring);
                 subStrings2.push(substring);
                 substring = *it;
-                j++;
                 bEncountered = false;
             }
 
             else {
-                substring = substring + *it;
+                substring +=  *it;
             }
         }
     }
 
     subStrings.push(substring);
     subStrings2.push(substring);
-
-
-    /*for (int i = 0; i < subStrings.size() - 1; i++){
-        if (subStrings[i] != subStrings[i+1]){
-            return false;
-        }
-    }*/
-
-    /*for (int i = 0; i < subStrings.size(); i++){
-        stringStack.push(subStrings[i]);
-    }*/
 
     while (subStrings.isEmpty() != true){
         postStackString += subStrings.pop();

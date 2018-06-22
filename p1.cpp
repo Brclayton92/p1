@@ -1,6 +1,7 @@
 #include <iostream>
 #include "stack_p1.h"
 #include "stacks_for_regular_languages.h"
+#include "stack_p1.cpp"
 using namespace std;
 
 int main() {
@@ -342,5 +343,15 @@ int main() {
     /*
      * test 15 end
      */
+
+    stack_p1<string> s;
+    s.push(".");
+    s.push("world");
+    s.push("hello");
+    cout << s.peek();
+    s.pop();
+    cout <<s.peek();
+    s.pop();
+    cout << s.peek();
     return 0;
 }
