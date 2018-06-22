@@ -51,7 +51,7 @@ int main() {
     /*
 * test 2 start
 */
-    inputString = "E";
+    inputString = "ε";
     inputCharPtr = &inputString[0];
 
     if (sfrl.L2(inputCharPtr) == true) {
