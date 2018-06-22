@@ -30,7 +30,7 @@ T stack_p1<T>::pop() {
 }
 
 template<typename T>
-void stack_p1<T>::push(T item) { //FIXME: IDE is insisting this method is never used, but it certainly is used.
+void stack_p1<T>::push(T item) {
     node* newItem = new node; // creates a new node to store input data
     node* temp = top; // creates a temp duplicate of current top
     top = newItem; // changes top to the newly created node

@@ -143,6 +143,7 @@ bool stacks_for_regular_languages::L3(char *inputString) {
             }
         }
 
+
         /*Adds B's to subString variable until another A is encountered. When another A is encountered, adds the current
          *subString to the stacks (subStrings and subStrings2), starts a new substring, and changes bEncountered back to false */
         if (bEncountered == true){
